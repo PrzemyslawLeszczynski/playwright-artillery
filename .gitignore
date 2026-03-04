@@ -1,0 +1,16 @@
+node_modules/
+
+# Environment variables (contains secrets)
+.env
+
+# Playwright
+playwright-report/
+test-results/
+.auth/
+
+# Artillery build output
+tests/dist/
+dist/
+
+# TypeScript
+*.js.map

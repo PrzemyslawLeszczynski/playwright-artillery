@@ -32,6 +32,31 @@ export const config: Config = {
   // 8-core machine optimization (1 worker per core)
   // workers controls how many Artillery worker processes run in parallel
   workers: 8,
+  plugins: {
+    ensure: {},
+  },
+  ensure: {
+    conditions: [
+      {
+        expression: "http.response_time.p95 < 5000",
+      },
+      {
+        expression: "http.response_time.p99 < 9000",
+      },
+      {
+        expression: "browser.page.TTFB.https://www.demoblaze.com/.p95 < 3500",
+      },
+      {
+        expression: "browser.page.FCP.https://www.demoblaze.com/.p95 < 5000",
+      },
+      {
+        expression: "browser.page.LCP.https://www.demoblaze.com/.p95 < 6500",
+      },
+      {
+        expression: "vusers.failed == 0",
+      },
+    ],
+  },
   engines: {
     playwright: {
       trace: {

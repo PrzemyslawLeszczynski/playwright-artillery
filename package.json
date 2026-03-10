@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "description": "Playwright test suite with TypeScript",
   "scripts": {
-    "test:cloud": "npx playwright test --project=chromium",
-    "test:headed": "npx playwright test --project=chromium --headed",
-    "test:ui": "npx playwright test --project=chromium --ui",
-    "report": "npx playwright test --project=chromium && npx playwright show-report",
-    "artillery:load": "npx artillery run ./tests/load/homePage.load.spec.ts",
-    "artillery:load:report": "dotenv -- artillery run ./tests/load/homePage.load.spec.ts --record",
-    "artillery:perf": "npx artillery run ./tests/load/homePage.perf.spec.ts",
-    "artillery:perf:report": "dotenv -- artillery run ./tests/load/homePage.perf.spec.ts --record"
+    "func:test:report:cloud": "npx playwright test --project=chromium",
+    "func:test:headed": "npx playwright test --project=chromium --headed",
+    "func:test:ui": "npx playwright test --project=chromium --ui",
+    "func:report": "npx playwright test --project=chromium && npx playwright show-report",
+    "arty:load:test": "npx artillery run ./tests/load/homePage.load.spec.ts",
+    "arty:load:report": "dotenv -- artillery run ./tests/load/homePage.load.spec.ts --record",
+    "arty:perf:test": "npx artillery run ./tests/perf/homePage.perf.spec.ts",
+    "arty:perf:report": "dotenv -- artillery run ./tests/perf/homePage.perf.spec.ts --record",
+    "func:report:then:arty:load:report": "npm run func:test:report:cloud && npm run arty:load:report"
   },
   "devDependencies": {
     "@artilleryio/playwright-reporter": "^1.1.3",

@@ -7,12 +7,47 @@ TypeScript project for DemoBlaze that combines:
 
 Target site: `https://www.demoblaze.com`
 
+## Table Of Contents
+
+- [Artillery Docs](#artillery-docs)
+- [Prerequisites](#prerequisites)
+- [Clone And Run](#clone-and-run)
+- [Quick Start](#quick-start)
+- [NPM Scripts](#npm-scripts)
+- [Project Layout](#project-layout)
+- [Test Suites](#test-suites)
+- [Configuration Notes](#configuration-notes)
+- [Page Object](#page-object)
+
 ## Artillery Docs
 
-- Getting started: <https://www.artillery.io/docs/get-started/get-artillery>
-- Playwright engine: <https://www.artillery.io/docs/reference/engines/playwright>
-- Test script phases: <https://www.artillery.io/docs/reference/test-script#load-phases>
-- Metrics reference: <https://www.artillery.io/docs/reference/artillery-metrics-reference>
+- Documentation home: <https://www.artillery.io/docs>
+
+## Prerequisites
+
+- Node.js 18+
+- npm
+
+## Clone And Run
+
+```bash
+git clone <your-repo-url>
+cd playwright-artillery
+npm install
+npx playwright install
+```
+
+Notes:
+
+- No global installs are required; all tools run from local `node_modules` via npm scripts.
+- Use `npm ci` instead of `npm install` in CI for reproducible installs.
+- Artillery Cloud reporting commands (`arty:*:report`) require `ARTILLERY_CLOUD_API_KEY` in `.env`.
+
+Optional `.env` for Artillery Cloud reporting:
+
+```bash
+ARTILLERY_CLOUD_API_KEY=your_api_key
+```
 
 ## Quick Start
 
@@ -25,17 +60,6 @@ npm run func:test:report:cloud
 
 # Warm-up load test
 npm run arty:load:test
-```
-
-## Prerequisites
-
-- Node.js 18+
-- npm
-
-Optional `.env` for Artillery Cloud reporting:
-
-```bash
-ARTILLERY_CLOUD_API_KEY=your_api_key
 ```
 
 ## NPM Scripts

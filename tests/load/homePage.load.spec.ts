@@ -54,20 +54,24 @@ async function browseHomePage(page: Page) {
   const { HomePage } = await import("../../src/HomePage");
   const homePage = new HomePage(page);
 
+  // ── Step 1: Open homepage ──────────────────────────────────────────────────
   await homePage.goto();
   await homePage.waitForPageLoad();
   await homePage.assertPageLoaded();
   await homePage.assertProductsVisible();
 
+  // ── Step 2: Open login modal ───────────────────────────────────────────────
   await homePage.navLogin.click();
   await expect(page.locator("#logInModal")).toBeVisible({ timeout: 5_000 });
   await page.locator("#logInModal .close").click();
   await page.waitForTimeout(500);
 
+  // ── Step 3: Browse Phones category ────────────────────────────────────────
   await homePage.filterByCategory("Phones");
   await homePage.assertProductsVisible();
   await homePage.getProductTitles();
 
+  // ── Step 4: Open product detail page ──────────────────────────────────────
   await homePage.clickProduct(0);
   await expect(page).toHaveURL(/prod\.html/);
   await expect(

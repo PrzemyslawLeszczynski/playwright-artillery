@@ -11,6 +11,7 @@
     "arty:load:report": "dotenv -- artillery run ./tests/load/homePage.load.spec.ts --record",
     "arty:perf:test": "npx artillery run ./tests/perf/homePage.perf.spec.ts",
     "arty:perf:report": "dotenv -- artillery run ./tests/perf/homePage.perf.spec.ts --record",
+    "func:test:then:arty:load:test": "npm run func:test:report:cloud && npm run arty:load:test",
     "func:report:then:arty:load:report": "npm run func:test:report:cloud && npm run arty:load:report"
   },
   "devDependencies": {

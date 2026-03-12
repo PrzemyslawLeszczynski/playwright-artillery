@@ -80,6 +80,7 @@ npm run arty:load:test
 
 ### Combined
 
+- `npm run func:test:then:arty:load:test` run Playwright functional tests, then Artillery load test (no Cloud recording)
 - `npm run func:report:then:arty:load:report` run Playwright functional tests, then Artillery load test with Cloud recording
 
 ## Project Layout
